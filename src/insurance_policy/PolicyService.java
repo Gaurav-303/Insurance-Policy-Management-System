@@ -14,4 +14,7 @@ public class PolicyService {
         linkedHashMapPolicies.put(policy.getPolicyNumber(), policy);
         treeMapPolicies.put(policy.getExpiryDate(), policy);
     }
+    public Policy getPolicyByNumber(String policyNumber) {
+        return hashMapPolicies.get(policyNumber);
+    }
 }
