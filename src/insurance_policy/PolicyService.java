@@ -17,4 +17,18 @@ public class PolicyService {
     public Policy getPolicyByNumber(String policyNumber) {
         return hashMapPolicies.get(policyNumber);
     }
+    public List<Policy> getPoliciesExpiringWithin30Days() {
+        List<Policy> result = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        LocalDate limit = today.plusDays(30);
+
+        for (Policy policy : hashMapPolicies.values()) {
+            if (!policy.getExpiryDate().isBefore(today) &&
+                    !policy.getExpiryDate().isAfter(limit)) {
+                result.add(policy);
+            }
+        }
+        return result;
+    }
+
 }
