@@ -39,5 +39,11 @@ public class PolicyService {
         }
         return result;
     }
+    public void removeExpiredPolicies() {
+        LocalDate today = LocalDate.now();
+        hashMapPolicies.values().removeIf(p -> p.getExpiryDate().isBefore(today));
+        linkedHashMapPolicies.values().removeIf(p -> p.getExpiryDate().isBefore(today));
+        treeMapPolicies.values().removeIf(p -> p.getExpiryDate().isBefore(today));
+    }
 
 }
