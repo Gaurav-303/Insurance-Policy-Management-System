@@ -45,5 +45,8 @@ public class PolicyService {
         linkedHashMapPolicies.values().removeIf(p -> p.getExpiryDate().isBefore(today));
         treeMapPolicies.values().removeIf(p -> p.getExpiryDate().isBefore(today));
     }
+    public Collection<Policy> getAllPolicies() {
+        return hashMapPolicies.values();
+    }
 
 }
