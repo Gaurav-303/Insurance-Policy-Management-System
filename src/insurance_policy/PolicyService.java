@@ -30,5 +30,14 @@ public class PolicyService {
         }
         return result;
     }
+    public List<Policy> getPoliciesByHolder(String holderName) {
+        List<Policy> result = new ArrayList<>();
+        for (Policy policy : hashMapPolicies.values()) {
+            if (policy.getPolicyHolder().equalsIgnoreCase(holderName)) {
+                result.add(policy);
+            }
+        }
+        return result;
+    }
 
 }
